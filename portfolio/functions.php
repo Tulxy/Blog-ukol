@@ -1,21 +1,50 @@
 <?php
 
+
+
 /**
  *
  */
+
 $posts = require __DIR__ . '/components/posts-db.php';
 
-if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+$author = $_POST['author'] ?? null;
+$title = $_POST['title'] ?? null;
+$content = $_POST['content'] ?? null;
+
+$errors = [];
+
+if (isset($title) && isset($content)) {
+  if (empty($author)) {
+    $author = "anonym";
+  }
+
+  if (empty($title) || empty($content)) {
+    $errors[] = "Název a obsah jsou povinné.";
+  }
+
+  if (!empty($errors)) {
+    foreach ($errors as $error) {
+      echo "<p class='bg-red-500/60 border border-red-600 p-2'>$error</p>";
+    }
+    return;
+  }
 
   $posts[] = [
-    'author' => $_POST['author'],
-    'title' => $_POST['title'],
-    'content' => $_POST['content']
+    'author' => $author,
+    'title' => $title,
+    'content' => $content
   ];
 
   file_put_contents(
     __DIR__ . '/components/posts-db.php',
     "<?php\nreturn " . var_export($posts, true) . ";\n"
   );
+
+  echo "<p class='bg-green-500/30 border border-green-500 p-4 m-4 rounded-xl'>Příspěvek byl uložen.</p>";
+
+} else {
+  return 0;
 }
+
 ?>
