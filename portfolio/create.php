@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Contacts</title>
 </head>
-<body class="bg-white">
+<body class="bg-gray-900 text-white">
 
 <?php
 require_once __DIR__ . '/components/header.php';
@@ -16,11 +16,11 @@ require __DIR__ . '/functions.php';
 ?>
 
 <section class="max-w-xl mx-auto mt-10">
-  <h1 class="text-3xl font-bold mb-6 text-gray-800 text-center">Add a Post</h1>
+  <h1 class="text-3xl font-bold mb-6 text-white text-center">Add a Post</h1>
 
-  <form method="POST" class="bg-white border border-gray-300 rounded-xl shadow-lg p-6 space-y-4">
+  <form method="POST" class="bg-gray-950/60 border border-gray-800 rounded-xl shadow-lg p-6 space-y-4">
     <div>
-      <label for="author" class="block font-semibold mb-1 text-gray-700">Author</label>
+      <label for="author" class="block font-semibold mb-1">Author</label>
       <input
         type="text"
         name="author"
@@ -31,7 +31,7 @@ require __DIR__ . '/functions.php';
     </div>
 
     <div>
-      <label for="title" class="block font-semibold mb-1 text-gray-700">Title</label>
+      <label for="title" class="block font-semibold mb-1">Title</label>
       <input
         type="text"
         name="title"
@@ -42,7 +42,7 @@ require __DIR__ . '/functions.php';
     </div>
 
     <div>
-      <label for="content" class="block font-semibold mb-1 text-gray-700">Content</label>
+      <label for="content" class="block font-semibold mb-1">Content</label>
       <textarea
         name="content"
         id="content"

@@ -25,14 +25,15 @@ global $title, $content, $author, $postIndex;
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title><?= $title ?></title>
 </head>
-<body>
+<body class="bg-gray-900">
 
 <?php require_once __DIR__ . '/components/header.php' ?>
 
-<div class="max-w-2xl mx-auto mt-10 bg-white border border-gray-200 rounded-xl shadow-lg p-6">
-  <h1 class="text-3xl font-bold mb-2 text-gray-800"><?= htmlspecialchars($post['title']) ?></h1>
-  <h3 class="text-gray-500 mb-4">By <?= htmlspecialchars($post['author']) ?></h3>
-  <p class="text-gray-700 leading-relaxed"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+<div class="max-w-4xl h-100 mx-auto mt-20 bg-gray-950/60 border border-gray-800 rounded-xl shadow-lg p-6">
+  <span class="text-sm text-gray-400"><?= date('M d, Y') ?></span>
+  <h1 class="text-3xl font-bold mb-2 text-white"><?= htmlspecialchars($post['title']) ?></h1>
+  <h3 class="text-gray-500 mb-4">By <strong class="text-gray-300"><?= htmlspecialchars($post['author']) ?></strong></h3>
+  <p class="text-gray-400 leading-relaxed"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
 </div>
 
 <?php require_once __DIR__ . '/components/footer.php' ?>

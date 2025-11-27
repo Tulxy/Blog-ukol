@@ -11,8 +11,13 @@ $posts = require __DIR__ . '/components/posts-db.php';
 $author = $_POST['author'] ?? null;
 $title = $_POST['title'] ?? null;
 $content = $_POST['content'] ?? null;
+$date = date('Y-m-d H:i:s') ?? null;
 
 $errors = [];
+
+if (!isset($date)) {
+  $date = date('d.m.Y H:i');
+}
 
 if (isset($title) && isset($content)) {
   if (empty($author)) {
@@ -33,7 +38,8 @@ if (isset($title) && isset($content)) {
   $posts[] = [
     'author' => $author,
     'title' => $title,
-    'content' => $content
+    'content' => $content,
+    'date' => $date
   ];
 
   file_put_contents(
@@ -47,4 +53,4 @@ if (isset($title) && isset($content)) {
   return 0;
 }
 
-?>
+

@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Posts</title>
 </head>
-<body class="bg-white">
+<body class="bg-gray-900">
 
 <?php
 require_once __DIR__ . '/components/header.php';
@@ -23,11 +23,12 @@ require_once __DIR__ . '/components/header.php';
       $author = $post['author'];
       $title = $post['title'];
       $content = $post['content'];
+      $date = $post['date'];
 
       require __DIR__ . '/components/post.php';
     }
   } else {
-    echo '<h1 class="text-black">No posts found.</h1>';
+    echo '<h1 class="text-white text-xl w-screen p-6">No posts found.</h1>';
   }
   ?>
 </section>
